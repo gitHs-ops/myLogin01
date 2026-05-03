@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+
+{% block title %}계정 관리{% endblock %}
+
+{% block head_extra %}
+<style>
+  .container { max-width: 720px; }
+  body { overflow: auto; height: auto; min-height: 100vh; align-items: flex-start; padding: 2rem 1rem; }
+</style>
+{% endblock %}
+
+{% block content %}
+<h1>계정 관리</h1>
+<p class="subtitle">등록된 계정 목록</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="width:60px">No</th>
+      <th>아이디</th>
+      <th style="width:160px">관리</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for user in users %}
+    <tr>
+      <td>{{ user.id }}</td>
+      <td>{{ user.username }}</td>
+      <td>
+        <a href="{{ url_for('admin_edit', user_id=user.id) }}" class="btn btn-secondary table-btn">수정</a>
+        <form action="{{ url_for('admin_delete', user_id=user.id) }}" method="POST" style="display:inline" onsubmit="return confirm('{{ user.username }} 계정을 삭제하시겠습니까?')">
+          <button type="submit" class="btn btn-secondary table-btn delete-btn">삭제</button>
+        </form>
+      </td>
+    </tr>
+    {% else %}
+    <tr><td colspan="3" style="text-align:center;color:var(--text-dim)">등록된 계정이 없습니다.</td></tr>
+    {% endfor %}
+  </tbody>
+</table>
+
+<div class="add-section">
+  <h2>계정 추가</h2>
+  <form action="{{ url_for('admin_add') }}" method="POST" class="inline-form">
+    <input type="text" name="username" placeholder="아이디" required>
+    <input type="password" name="password" placeholder="비밀번호" required>
+    <button type="submit" class="btn" style="margin-top:0;width:auto;padding:0.8rem 1.5rem">추가</button>
+  </form>
+</div>
+
+<div class="footer-link">
+  <a href="{{ url_for('logout') }}">로그아웃</a>
+</div>
+{% endblock %}

@@ -159,3 +159,59 @@ input:focus {
     font-size: 3rem;
     margin-bottom: 1.5rem;
 }
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 1rem;
+}
+
+th, td {
+    padding: 0.65rem 0.8rem;
+    text-align: left;
+    border-bottom: 1px solid var(--glass-border);
+    font-size: 0.9rem;
+}
+
+th {
+    color: var(--text-dim);
+    font-weight: 500;
+}
+
+.table-btn {
+    width: auto;
+    padding: 0.3rem 0.8rem;
+    margin-top: 0;
+    font-size: 0.8rem;
+    display: inline-block;
+    text-decoration: none;
+}
+
+.delete-btn {
+    background: rgba(239, 68, 68, 0.3);
+}
+
+.delete-btn:hover {
+    background: rgba(239, 68, 68, 0.6);
+}
+
+.add-section {
+    margin-top: 2rem;
+}
+
+.add-section h2 {
+    font-size: 1.1rem;
+    margin-bottom: 1rem;
+    color: var(--text-dim);
+}
+
+.inline-form {
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+}
+
+.inline-form input {
+    width: auto;
+    flex: 1;
+}

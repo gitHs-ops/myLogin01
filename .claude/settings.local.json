@@ -1,0 +1,7 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(python -c \"import os; print\\('ADMIN_PASSWORD:', repr\\(os.environ.get\\('ADMIN_PASSWORD', '미설정'\\)\\)\\)\")"
+    ]
+  }
+}

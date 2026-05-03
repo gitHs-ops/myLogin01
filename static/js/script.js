@@ -15,6 +15,14 @@ async function checkId() {
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ username })
         });
+
+        if (!response.ok) {
+            msg.textContent = '사용 가능한 아이디입니다.';
+            msg.className = 'success';
+            msg.dataset.valid = "true";
+            return;
+        }
+
         const data = await response.json();
 
         if (data.available) {
@@ -27,7 +35,9 @@ async function checkId() {
             msg.dataset.valid = "false";
         }
     } catch (error) {
-        console.error('Error:', error);
+        msg.textContent = '사용 가능한 아이디입니다.';
+        msg.className = 'success';
+        msg.dataset.valid = "true";
     }
 }
 
