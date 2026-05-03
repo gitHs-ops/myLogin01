@@ -9,11 +9,11 @@ app = Flask(__name__)
 app.secret_key = 'super_secret_key'
 
 # MySQL 데이터베이스 연결
-db_user = os.environ.get('DB_USER', 'root')
-db_password = os.environ.get('DB_PASSWORD', '')
-db_host = os.environ.get('DB_HOST', 'localhost')
-db_port = os.environ.get('DB_PORT', '3306')
-db_name = os.environ.get('DB_NAME', 'myapp')
+db_user = os.environ.get('MYSQLUSER', 'root')
+db_password = os.environ.get('MYSQLPASSWORD', '')
+db_host = os.environ.get('MYSQLHOST', 'localhost')
+db_port = os.environ.get('MYSQLPORT', '3306')
+db_name = os.environ.get('MYSQLDATABASE', 'myapp')
 
 DATABASE_URL = f'mysql+pymysql://{db_user}:{db_password}@{db_host}:{db_port}/{db_name}'
 app.config['SQLALCHEMY_DATABASE_URI'] = DATABASE_URL
