@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block title %}오류 발생{% endblock %}
+
+{% block content %}
+<div class="status-card">
+    <div class="icon">❌</div>
+    <h1>처리 실패</h1>
+    <p class="subtitle" style="color: #f87171;">{{ message }}</p>
+    
+    <div style="margin-top: 2rem;">
+        <button onclick="history.back()" class="btn btn-secondary" style="width: 100%;">이전 단계로 돌아가기</button>
+    </div>
+
+    <div class="footer-link">
+        <a href="/">메인 화면으로 이동</a>
+    </div>
+</div>
+{% endblock %}
